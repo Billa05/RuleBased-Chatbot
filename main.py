@@ -1,11 +1,11 @@
 import streamlit as st
 import re
-# import nltk
+import nltk
 
 from nltk.corpus import wordnet
 import random
 
-# nltk.download('wordnet', quiet=True)
+nltk.download('wordnet', quiet=True)
 
 # Define intents and their associated keywords and responses
 intents = {
