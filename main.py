@@ -12,72 +12,72 @@ intents = {
     'greet': {
         'keywords': ['hello', 'hi', 'hey', 'greetings'],
         'responses': [
-            "Hello! Welcome to our Web3 organization. How can I assist you today?",
-            "Hi there! What can I help you with regarding our Web3 services?",
-            "Greetings! How may I be of service in the world of Web3?"
+            "Hello! Welcome to our Web3 organization. Feel free to explore our services.",
+            "Hi there! We're here to assist you with our Web3 services.",
+            "Greetings! Our Web3 services are at your disposal."
         ]
     },
     'blockchain': {
         'keywords': ['blockchain', 'distributed ledger', 'decentralized'],
         'responses': [
-            "Blockchain is a decentralized, distributed ledger technology that records transactions across many computers.",
-            "Our organization specializes in blockchain solutions. What specific aspect are you interested in?",
-            "Blockchain technology is at the core of our Web3 services. How can I explain it further?"
+            "Blockchain is a decentralized, distributed ledger technology that records transactions securely.",
+            "Our organization specializes in blockchain solutions, offering a range of services from development to consultancy.",
+            "Blockchain technology is at the core of our Web3 services, providing secure and transparent solutions."
         ]
     },
     'smart_contracts': {
         'keywords': ['smart contracts', 'self-executing', 'automated agreements'],
         'responses': [
-            "Smart contracts are self-executing contracts with the terms directly written into code.",
-            "We develop and audit smart contracts. Would you like more information on our services?",
-            "Smart contracts automate agreement execution in a transparent and conflict-free way. How can I elaborate?"
+            "Smart contracts are self-executing contracts with the terms of the agreement directly written into code.",
+            "We develop and audit smart contracts to ensure they operate securely and efficiently.",
+            "Smart contracts automate agreement execution, providing a transparent and conflict-free process."
         ]
     },
     'crypto': {
         'keywords': ['cryptocurrency', 'crypto', 'bitcoin', 'ethereum'],
         'responses': [
-            "Cryptocurrencies are digital or virtual currencies that use cryptography for security.",
-            "We offer various cryptocurrency-related services. What specific area are you interested in?",
-            "From Bitcoin to Ethereum, we cover a wide range of cryptocurrencies. What would you like to know?"
+            "Cryptocurrencies are digital currencies that use cryptography for secure transactions.",
+            "We offer a variety of cryptocurrency-related services, from trading to investment advice.",
+            "Our expertise covers a wide range of cryptocurrencies, ensuring secure and informed transactions."
         ]
     },
     'defi': {
         'keywords': ['defi', 'decentralized finance', 'lending', 'borrowing'],
         'responses': [
-            "DeFi, or Decentralized Finance, uses blockchain to recreate traditional financial systems.",
-            "Our DeFi solutions cover lending, borrowing, and yield farming. What aspect interests you?",
-            "DeFi is revolutionizing finance. How can I explain its impact and our services?"
+            "DeFi, or Decentralized Finance, recreates traditional financial systems with blockchain, offering secure and transparent services.",
+            "Our DeFi solutions include lending, borrowing, and yield farming, designed to maximize your investments.",
+            "DeFi is revolutionizing finance, providing decentralized and accessible financial services."
         ]
     },
     'nft': {
         'keywords': ['nft', 'non-fungible token', 'digital art', 'collectibles'],
         'responses': [
-            "NFTs (Non-Fungible Tokens) are unique digital assets verified using blockchain technology.",
-            "We provide NFT creation and marketplace services. Would you like more details?",
-            "NFTs are transforming digital ownership. How can I help you understand or utilize them?"
+            "NFTs (Non-Fungible Tokens) are unique digital assets that provide proof of ownership and authenticity.",
+            "We offer comprehensive NFT services, from creation to marketplace solutions.",
+            "NFTs are changing the landscape of digital ownership and art, offering new opportunities for creators and collectors."
         ]
     },
     'dao': {
         'keywords': ['dao', 'decentralized autonomous organization'],
         'responses': [
-            "DAOs are organizations represented by rules encoded as a computer program, often using blockchain.",
-            "We assist in creating and managing DAOs. What specific information do you need?",
-            "DAOs offer a new way of organizational governance. How can I explain their benefits?"
+            "DAOs are blockchain-based organizations that operate through smart contracts, offering a new model for collective governance.",
+            "We provide support for creating and managing DAOs, leveraging blockchain for transparent and democratic operations.",
+            "DAOs represent a novel approach to governance and organization, enabling decentralized decision-making."
         ]
     },
     'contact': {
         'keywords': ['contact', 'reach', 'support', 'help'],
         'responses': [
-            "You can reach our support team at support@web3org.com or call us at +1-123-456-7890.",
-            "For personalized assistance, please email us at info@web3org.com.",
-            "Our support channels are available 24/7. How would you like to get in touch?"
+            "You can reach our support team via email at support@web3org.com or by calling us at +1-123-456-7890.",
+            "For assistance, please email us at info@web3org.com. We're here to help.",
+            "Our support channels are available 24/7 for any inquiries or assistance you may need."
         ]
     },
     'fallback': {
         'responses': [
-            "I'm not sure I understand. Could you please rephrase your question?",
-            "I'm still learning about Web3. Could you provide more context or ask in a different way?",
-            "I don't have information on that specific topic. Is there something else I can help with?"
+            "I'm not sure I understand. Please visit our website for more information on our services.",
+            "I'm still learning about Web3. For detailed information, our website offers extensive resources.",
+            "I don't have information on that specific topic. Our website may have the answers you're looking for."
         ]
     }
 }
@@ -111,6 +111,18 @@ def get_intent(user_input):
 
 # Streamlit UI
 st.title("Web3 Organization Chatbot")
+
+# Function to display all unique keywords
+def display_keywords():
+    all_keywords = set()
+    for intent_data in intents.values():
+        keywords = intent_data.get('keywords', [])
+        all_keywords.update(keywords)
+    st.subheader("Accepted Keywords")
+    st.write(", ".join(sorted(all_keywords)))
+
+# Call the function to display keywords
+display_keywords()
 
 # Initialize chat history
 if 'messages' not in st.session_state:
